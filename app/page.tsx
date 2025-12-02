@@ -394,28 +394,15 @@ export default function HomePage() {
                   className="inline-block"
                   style={{ transform: "rotate(5deg)" }}
                 >
-                  <Image src="/logo.png" alt="Logo" width={64} height={64} />
+                  <Image
+                    src="/favicon.svg"
+                    alt="Logo"
+                    width={128}
+                    height={128}
+                  />
                 </span>
                 Bits
               </motion.h1>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                className="flex items-center justify-center gap-2 mt-2"
-              >
-                <div
-                  className="w-12 h-0.5 bg-gray-400"
-                  style={{ transform: "rotate(-2deg)" }}
-                />
-                <p className="text-sm text-gray-600 font-medium">
-                  games & fun stuff
-                </p>
-                <div
-                  className="w-12 h-0.5 bg-gray-400"
-                  style={{ transform: "rotate(2deg)" }}
-                />
-              </motion.div>
             </div>
           </div>
         </div>
