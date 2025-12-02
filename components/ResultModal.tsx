@@ -136,6 +136,13 @@ export default function ResultModal({
                   </span>
                 </div>
 
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-700 font-bold">Data Quality:</span>
+                  <span className="font-black text-lg text-gray-900">
+                    {result.dataQuality}
+                  </span>
+                </div>
+
                 {/* Points - Big and bold */}
                 <div
                   className="mt-4 pt-4 border-t-3 border-gray-900"

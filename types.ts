@@ -39,6 +39,7 @@ export interface GameResult {
   difference: number;
   percentageError: number;
   points: number;
+  dataQuality: DataQuality;
 }
 
 export interface GameState {

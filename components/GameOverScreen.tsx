@@ -219,7 +219,7 @@ export default function GameOverScreen({
           <div className="flex gap-4">
             <button
               onClick={() => router.push("/")}
-              className="flex-1 bg-white text-gray-900 font-black py-4 px-6 rounded-xl text-lg border-3 border-gray-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2"
+              className="flex-1 bg-white text-gray-900 font-black py-4 px-6 rounded-xl text-lg border-3 border-gray-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center justify-center gap-2"
               style={{
                 fontFamily: "Comic Sans MS, cursive, sans-serif",
                 transform: "rotate(0.5deg)",
@@ -230,7 +230,7 @@ export default function GameOverScreen({
             </button>
             <button
               onClick={onRestart}
-              className="flex-1 bg-gray-900 text-white font-black py-4 px-6 rounded-xl text-lg border-3 border-gray-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2"
+              className="flex-1 bg-gray-900 text-white font-black py-4 px-6 rounded-xl text-lg border-3 border-gray-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center justify-center gap-2"
               style={{
                 fontFamily: "Comic Sans MS, cursive, sans-serif",
                 transform: "rotate(-0.5deg)",

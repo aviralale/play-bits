@@ -49,6 +49,7 @@ export function useGameEngine(settings: GameSettings) {
         difference,
         percentageError,
         points,
+        dataQuality: gameState.currentItem.dataQuality,
       };
 
       setGameState((prev) => ({
