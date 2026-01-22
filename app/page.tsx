@@ -27,7 +27,7 @@ export default function HomePage() {
         const angle = Math.atan2(deltaY, deltaX);
         const distance = Math.min(
           Math.sqrt(deltaX * deltaX + deltaY * deltaY) / 60,
-          4
+          4,
         );
 
         eyeX.set(Math.cos(angle) * distance);
@@ -75,7 +75,9 @@ export default function HomePage() {
       emoji: "📊",
       borderColor: "#3b82f6",
       rotation: -1.5,
-      active: false,
+      active: true,
+      path: "/games/budget-master",
+      badge: "3 scenarios",
     },
     {
       id: "market-trends",
@@ -83,15 +85,19 @@ export default function HomePage() {
       emoji: "📈",
       borderColor: "#f97316",
       rotation: 0.5,
-      active: false,
+      active: true,
+      path: "/games/market-trends",
+      badge: "5 predictions",
     },
     {
       id: "shopping-challenge",
       title: "Shopping Challenge",
-      emoji: "🛍️",
+      emoji: "�",
       borderColor: "#ec4899",
       rotation: -1,
-      active: false,
+      active: true,
+      path: "/games/shopping-challenge",
+      badge: "4 challenges",
     },
     {
       id: "price-memory",
