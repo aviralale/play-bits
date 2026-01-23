@@ -92,7 +92,7 @@ export default function HomePage() {
     {
       id: "shopping-challenge",
       title: "Shopping Challenge",
-      emoji: "�",
+      emoji: "🛒",
       borderColor: "#ec4899",
       rotation: -1,
       active: true,
@@ -105,15 +105,9 @@ export default function HomePage() {
       emoji: "🧠",
       borderColor: "#8b5cf6",
       rotation: 1.5,
-      active: false,
-    },
-    {
-      id: "haggle-master",
-      title: "Haggle Master",
-      emoji: "🤝",
-      borderColor: "#f59e0b",
-      rotation: -0.5,
-      active: false,
+      active: true,
+      path: "/games/price-memory",
+      badge: "12 cards",
     },
   ];
 
@@ -551,7 +545,7 @@ export default function HomePage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="max-w-2xl mx-auto"
+          className="max-w-2xl mx-auto relative"
         >
           <div
             className="bg-white border-3 border-gray-900 rounded-2xl p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
@@ -559,36 +553,62 @@ export default function HomePage() {
           >
             <p
               className="text-gray-700 text-lg leading-relaxed mb-6"
-              style={{
-                fontFamily: "Comic Sans MS, cursive, sans-serif",
-              }}
+              style={{ fontFamily: "Comic Sans MS, cursive, sans-serif" }}
             >
-              Hi! 👋 This is where I make fun games about life in Nepal. Test
-              your knowledge of prices, culture, and more!
+              Hi! 👋 This is <span className="font-bold">Ctrl Bits</span> — a
+              Nepal-based digital product and software studio. We design and
+              build scalable web and mobile applications with a strong focus on
+              clean architecture, performance, and long-term reliability.
+            </p>
+
+            <p
+              className="text-gray-700 text-lg leading-relaxed mb-6"
+              style={{ fontFamily: "Comic Sans MS, cursive, sans-serif" }}
+            >
+              At Ctrl Bits, we work with startups, platforms, and businesses to
+              ship production-grade systems using modern stacks such as React,
+              TypeScript, Tailwind CSS, and Django. We value clarity,
+              maintainability, and honest engineering over shortcuts.
             </p>
 
             <div className="flex flex-wrap justify-center gap-3 mb-6">
-              <Button
-                variant="outline"
-                className="border-2 border-gray-900 hover:bg-gray-100 font-bold"
-                style={{ transform: "rotate(1deg)" }}
+              <a
+                href="https://ctrlbits.com"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                📧 Newsletter
-              </Button>
-              <Button
-                variant="outline"
-                className="border-2 border-gray-900 hover:bg-gray-100 font-bold"
-                style={{ transform: "rotate(-1deg)" }}
+                <Button
+                  variant="outline"
+                  className="border-2 border-gray-900 hover:bg-gray-100 font-bold"
+                  style={{ transform: "rotate(1deg)" }}
+                >
+                  🌐 ctrlbits.com
+                </Button>
+              </a>
+
+              <a href="mailto:hello@ctrlbits.com">
+                <Button
+                  variant="outline"
+                  className="border-2 border-gray-900 hover:bg-gray-100 font-bold"
+                  style={{ transform: "rotate(-1deg)" }}
+                >
+                  💼 Work With Us
+                </Button>
+              </a>
+
+              <a
+                href="https://ctrlbits.com/contact"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                🐦 Twitter
-              </Button>
-              <Button
-                variant="outline"
-                className="border-2 border-gray-900 hover:bg-gray-100 font-bold"
-                style={{ transform: "rotate(0.5deg)" }}
-              >
-                ☕ Support
-              </Button>
+                <Button
+                  variant="outline"
+                  className="border-2 border-gray-900 hover:bg-gray-100 font-bold"
+                  style={{ transform: "rotate(0.5deg)" }}
+                >
+                  ☕ Contact
+                </Button>
+              </a>
             </div>
 
             {/* Hand-drawn divider */}
@@ -603,12 +623,15 @@ export default function HomePage() {
             </div>
 
             <div className="text-center">
-              <p className="text-gray-600 font-bold">
-                ✉️ playbits@ctrlbits.com
-              </p>
-              <button className="text-sm text-gray-500 hover:text-gray-900 mt-2 underline">
+              <p className="text-gray-600 font-bold">✉️ hello@ctrlbits.com</p>
+              <a
+                href="https://ctrlbits.com/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-500 hover:text-gray-900 mt-2 underline inline-block"
+              >
                 Privacy Policy
-              </button>
+              </a>
             </div>
           </div>
 
@@ -623,6 +646,7 @@ export default function HomePage() {
               />
             </svg>
           </div>
+
           <div className="absolute -bottom-4 -right-4 w-6 h-6">
             <svg viewBox="0 0 40 40">
               <circle
