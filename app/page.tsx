@@ -661,6 +661,62 @@ export default function HomePage() {
           </div>
         </motion.div>
       </main>
+
+      {/* Footer with Resources */}
+      <footer className="bg-gray-900 text-white py-12 border-t-4 border-gray-900 mt-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-12 mb-12">
+            <div>
+              <h3 className="font-black text-xl mb-4">About PlayBits</h3>
+              <p className="text-gray-300 text-sm">
+                Free financial literacy games designed to teach real-world money management skills through interactive gameplay.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-black text-xl mb-4">For Educators</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a
+                    href="/teachers"
+                    className="text-blue-300 hover:text-blue-100 font-bold"
+                  >
+                    Free Classroom Resources
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/teachers"
+                    className="text-blue-300 hover:text-blue-100 font-bold"
+                  >
+                    Unblocked Financial Games
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-black text-xl mb-4">Quick Links</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a href="/" className="text-blue-300 hover:text-blue-100 font-bold">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="/teachers" className="text-blue-300 hover:text-blue-100 font-bold">
+                    Teachers
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
+            <p>PlayBits © 2026 | Made by Ctrl Bits | Free Financial Literacy Education</p>
+            <p className="mt-2">
+              Simulators & games for learning budgeting, money management, market trends, and financial decisions.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Script from "next/script";
 import { Difficulty } from "@/types";
 import { useBudgetGameEngine } from "@/hooks/useBudgetGameEngine";
 import BudgetAllocator from "@/components/BudgetAllocator";
@@ -11,8 +12,38 @@ import BudgetResultModal from "@/components/BudgetResultModal";
 import ScoreTracker from "@/components/ScoreTracker";
 import DifficultySelector from "@/components/DifficultySelector";
 import BudgetGameOverScreen from "@/components/BudgetGameOverScreen";
+import GameEducationSection from "@/components/GameEducationSection";
 
 export default function BudgetMasterPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    name: "Budget Master: Monthly Expense Simulator",
+    url: "https://www.playbits.online/games/budget-master",
+    description:
+      "A realistic financial literacy simulation where players manage a monthly household budget. Learn the 50/30/20 budgeting rule by allocating expenses across categories. Free online game for students and educators.",
+    genre: ["Educational", "Simulation", "Strategy"],
+    gamePlatform: "Web Browser",
+    applicationCategory: "Game",
+    operatingSystem: "Any",
+    author: {
+      "@type": "Organization",
+      name: "Ctrl Bits",
+    },
+    audience: {
+      "@type": "EducationalAudience",
+      educationalRole: "student",
+      audienceType: "High School Students",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/OnlineOnly",
+    },
+    isAccessibleForFree: true,
+  };
+
   const router = useRouter();
   const [difficulty, setDifficulty] = useState<Difficulty | undefined>(
     undefined,
@@ -57,13 +88,24 @@ export default function BudgetMasterPage() {
 
   if (gameState.isGameOver) {
     return (
-      <BudgetGameOverScreen gameState={gameState} onRestart={handleRestart} />
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <BudgetGameOverScreen gameState={gameState} onRestart={handleRestart} />
+      </>
     );
   }
 
   if (!hasStarted) {
     return (
-      <div className="min-h-screen bg-white relative flex items-center justify-center p-4">
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <div className="min-h-screen bg-white relative flex items-center justify-center p-4">
         {/* Grid Background */}
         <div
           className="fixed inset-0 opacity-[0.04] pointer-events-none"
@@ -213,34 +255,39 @@ export default function BudgetMasterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white relative py-8 px-4">
-      {/* Grid Background */}
-      <div
-        className="fixed inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #000 1px, transparent 1px),
-            linear-gradient(to bottom, #000 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-        }}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <div className="min-h-screen bg-white relative py-8 px-4">
+        {/* Grid Background */}
+        <div
+          className="fixed inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, #000 1px, transparent 1px),
+              linear-gradient(to bottom, #000 1px, transparent 1px)
+            `,
+            backgroundSize: "40px 40px",
+          }}
+        />
 
-      {/* Scattered Dots */}
-      <div className="fixed inset-0 pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-gray-400 rounded-full opacity-20"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-      </div>
+        {/* Scattered Dots */}
+        <div className="fixed inset-0 pointer-events-none">
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-gray-400 rounded-full opacity-20"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+            />
+          ))}
+        </div>
 
-      <div className="max-w-4xl mx-auto relative">
+        <div className="max-w-4xl mx-auto relative">
         <button
           onClick={() => router.push("/")}
           className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-6 font-bold"
@@ -336,7 +383,30 @@ export default function BudgetMasterPage() {
           onNext={handleNextRound}
           isLastRound={gameState.currentRound >= gameState.totalRounds}
         />
+
+        {/* Educational Content Section */}
+        <GameEducationSection
+          title="Master Monthly Budgeting & Financial Planning"
+          description="Budget Master teaches the 50/30/20 budgeting rule through realistic household scenarios. Players manage real-world income and expense categories, learning how to allocate resources effectively across needs, wants, and savings. This game simulates the decision-making process families face when planning their monthly finances."
+          learningOutcomes={[
+            "Understand the 50/30/20 budgeting framework",
+            "Allocate expenses across multiple categories",
+            "Manage household budgets within income constraints",
+            "Make informed financial decisions",
+            "Plan for essential needs and discretionary spending",
+          ]}
+          targetAudience="High school students (grades 9-12)"
+          mechanics="Each round presents a household scenario with monthly income and family details. Players allocate their income across categories (housing, food, utilities, education, entertainment, savings). The game provides feedback on how their allocation compares to the recommended 50/30/20 rule."
+          keywords={[
+            "budget simulator",
+            "financial planning",
+            "expense allocation",
+            "budgeting game",
+            "financial literacy",
+          ]}
+        />
       </div>
-    </div>
+      </div>
+    </>
   );
 }

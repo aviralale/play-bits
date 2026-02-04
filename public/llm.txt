@@ -1,0 +1,244 @@
+# PlayBits - Interactive Educational Games for Nepal
+
+## Platform Overview
+PlayBits is a comprehensive, interactive gaming platform designed specifically for the Nepali market and global audience interested in South Asian economics. The platform combines entertainment with financial literacy education through gamified experiences centered on real Nepali market data and everyday life scenarios.
+
+Website: https://www.playbits.online/
+Developer: Ctrl Bits
+Language: English
+Platform: Web-based, responsive design
+Technology: Next.js, React, TypeScript, TailwindCSS
+
+## Mission & Value Proposition
+PlayBits empowers users to develop practical financial knowledge through engaging games that reflect authentic Nepali market conditions. Our mission is to make financial literacy accessible, entertaining, and culturally relevant for both Nepali citizens and international audiences interested in South Asian markets.
+
+## Core Games & Detailed Descriptions
+
+### 1. Guess the Price
+**Purpose:** Develop price estimation skills and market awareness
+**Mechanics:** Players view everyday Nepali items and predict their actual market prices
+**Difficulty Levels:** 5 progressive levels from very easy to very hard
+**Content:** 35+ items covering groceries, food, transport, services, health, and home categories
+**Educational Value:** 
+- Market awareness and price trends
+- Understanding purchasing power
+- Recognition of pricing patterns
+- Decision-making based on incomplete information
+**Items Include:** Rice, chicken meat, eggs, tomatoes, mustard oil, milk, taxi fares, electricity, gas cylinders, and more
+**Scoring:** Points awarded based on accuracy (0-1000 per round)
+
+### 2. Budget Master
+**Purpose:** Develop household budget allocation and financial planning skills
+**Mechanics:** Players allocate a monthly budget across essential spending categories
+**Scenarios:** 3 realistic Nepali family situations
+  - Middle-class family in Kathmandu (NPR 75,000/month)
+  - Young professional in Pokhara (NPR 45,000/month)
+  - University student in Kathmandu (NPR 25,000/month)
+**Categories:** Housing, food, transport, education, healthcare, entertainment, savings
+**Educational Value:**
+- Budget allocation and planning
+- Understanding spending categories
+- Trade-off decision making
+- Financial constraint management
+- Recommended vs. actual spending analysis
+**Feedback:** Personalized feedback on allocation quality and category-specific suggestions
+
+### 3. Market Trends
+**Purpose:** Develop predictive analysis and trend recognition skills
+**Mechanics:** Players analyze 6-month price history and predict next month's price
+**Items:** 6 different products with varying trends
+  - Rice (Premium) - Increasing trend
+  - Tomatoes - Volatile trend
+  - Chicken Breast - Stable trend
+  - Diesel Fuel - Increasing trend
+  - Bananas - Decreasing trend
+  - Milk Powder - Increasing trend
+**Confidence Levels:** Low, medium, high (affects scoring multiplier)
+**Educational Value:**
+- Pattern recognition
+- Data analysis and interpretation
+- Trend forecasting
+- Confidence assessment
+- Risk evaluation
+**Scoring:** Based on accuracy with confidence multiplier and trend bonus
+
+### 4. Shopping Challenge
+**Purpose:** Develop smart shopping decisions and budget optimization skills
+**Mechanics:** Complete shopping missions within a budget while prioritizing essential items
+**Challenges:** 4 different real-life shopping scenarios
+  - Diwali Festival Shopping (NPR 8,000 budget, family of 4)
+  - Student Monthly Expenses (NPR 4,500 budget, individual)
+  - Office Worker's Monthly Shop (NPR 6,500 budget, individual)
+  - Senior Citizen Savings (NPR 3,500 budget, individual)
+**Item Categories:** Essentials, important, and optional priorities
+**Educational Value:**
+- Smart shopping decision-making
+- Budget constraint satisfaction
+- Priority assessment
+- Trade-off optimization
+- Efficiency evaluation
+**Scoring:** Efficiency rating (0-100%), budget adherence, essential items coverage
+
+### 5. Price Memory
+**Purpose:** Develop memory and price association skills
+**Mechanics:** Classic memory matching game with price-item pairs
+**Difficulty Levels:** 3 levels
+  - Easy: 8 cards (4 pairs), 2 minutes
+  - Medium: 12 cards (6 pairs), 3 minutes
+  - Hard: 16 cards (8 pairs), 4 minutes
+**Features:** Timer, move counter, score calculation
+**Educational Value:**
+- Memory improvement
+- Price-item association learning
+- Time management
+- Spatial reasoning
+**Scoring:** Base score minus move penalties and time penalties plus difficulty bonuses
+
+## Data Sources & Accuracy
+PlayBits leverages authentic market data from multiple Nepali sources:
+- **NKSAP Market Watch Reports**: Official market surveillance data
+- **Kathmandu Post & eFeedLink**: Reputable news and agricultural sources
+- **Kalimati Market Data**: Nepal's primary wholesale produce market
+- **Poultry Association Records**: Official livestock market data
+- **Local Market Surveys**: Community-based price collection
+- **Reddit & User Reports**: Real-time crowd-sourced pricing
+- **Supermarket & Retail Data**: Current retail pricing
+- **Fuel Station Reports**: Energy commodity pricing
+
+Data Quality Ratings: High (official sources), Medium (reputable news), Low (estimates/community)
+
+## Target Audience
+- **Primary:** Youth and students (15-25 years) in Nepal seeking financial literacy
+- **Secondary:** Young professionals (25-35 years) planning personal finances
+- **Tertiary:** Educators and parents teaching financial concepts
+- **Global:** International users interested in South Asian economics and Nepali culture
+- **Research:** Academic studies of South Asian market dynamics
+
+## Key Features
+✓ Responsive design for desktop, tablet, and mobile
+✓ Gamified learning with immediate feedback
+✓ Progressive difficulty scaling
+✓ Personalized performance analytics
+✓ Multiple game modes for varied learning styles
+✓ Real-time market data integration
+✓ Nepali cultural context and relevance
+✓ Educational scoring systems
+✓ Progress tracking across sessions
+
+## Learning Outcomes
+By playing PlayBits, users develop:
+- Financial literacy and economic awareness
+- Practical budgeting and money management skills
+- Market analysis and trend recognition abilities
+- Decision-making under constraints
+- Understanding of Nepali economy and daily costs
+- Consumer price awareness
+- Statistical thinking and probability assessment
+- Trade-off evaluation and priority setting
+
+## Content Categories Covered
+**Grocery Items:** Rice, wheat flour, lentils, oils, spices, vegetables, fruits
+**Food & Dining:** Momos, burgers, pizza, coffee, restaurant meals
+**Transport:** Taxi fares, bike rides, fuel, public transport
+**Home & Utilities:** Electricity, gas, umbrellas, slippers, home appliances
+**Services:** Haircuts, gym memberships, internet, laundry
+**Health:** Medicines, fitness, health insurance
+**Special Items:** Festival foods, imported goods, luxury items
+
+## Platform Benefits
+- **Free Access:** No payment required to play
+- **No Registration:** Play anonymously without account creation
+- **Instant Feedback:** Immediate scoring and performance analytics
+- **Replayable:** Unlimited attempts to improve skills
+- **Educational:** Proven financial literacy outcomes
+- **Engaging:** Gamification increases motivation and retention
+- **Culturally Relevant:** Nepal-specific content and scenarios
+- **Data-Driven:** Based on real market information
+
+## Technical Specifications
+- **Framework:** Next.js (React-based)
+- **Language:** TypeScript
+- **Styling:** TailwindCSS with custom design system
+- **Animations:** Framer Motion for smooth interactions
+- **State Management:** React Hooks
+- **Performance:** Optimized for fast load times
+- **Accessibility:** WCAG 2.1 compliant
+- **SEO:** Next.js built-in optimization
+- **Analytics:** Google Analytics integration
+- **Browser Support:** All modern browsers
+
+## Use Cases
+1. **Personal Finance Education:** Individual learning of budgeting and financial planning
+2. **Classroom Teaching:** Teachers using games for engaging economics lessons
+3. **Economic Research:** Studying Nepali consumer behavior and price awareness
+4. **Market Studies:** Analyzing how consumers perceive market prices
+5. **Skill Development:** Improving decision-making and analytical abilities
+6. **Entertainment:** Fun game-based learning experience
+7. **Cultural Learning:** Understanding daily life and economics in Nepal
+
+## Game Statistics
+- Total playable games: 5 unique game types
+- Total items in database: 35+ distinctive items
+- Budget scenarios: 3 realistic family situations
+- Shopping challenges: 4 different missions
+- Price history records: 6-month trends for trend games
+- Difficulty levels: 3-5 levels per game
+- Performance metrics: Comprehensive scoring system
+- Accessibility: Mobile, tablet, desktop compatible
+
+## Information Architecture
+- **Home Page:** Game selection hub with descriptions
+- **Game Pages:** Individual game interfaces with instructions
+- **Difficulty Selection:** Dynamic difficulty-based content serving
+- **Results Pages:** Performance analytics and feedback
+- **Responsive Design:** Optimized for all screen sizes
+- **Navigation:** Intuitive menu system
+- **Accessibility:** Keyboard navigation support
+
+## Content Quality
+All content in PlayBits is:
+- Researched from reliable Nepali sources
+- Updated regularly to reflect current market conditions
+- Fact-checked against multiple sources
+- Appropriate for educational purposes
+- Free from biases or promotional content
+- Designed for clarity and understanding
+- Contextually relevant to Nepal
+
+## Legal & Ethical
+- **Copyright:** Original game design and mechanics
+- **Educational Use:** Encouraged for classroom and personal learning
+- **Disclaimer:** Prices are for educational purposes and subject to variation
+- **Data Privacy:** No personal information collection required
+- **Fair Use:** All market data used in compliance with sources
+- **Non-Commercial:** Educational and entertainment purposes only
+- **Transparency:** Clear data sourcing and methodology
+
+## Developer Information
+**Organization:** Ctrl Bits
+**Specialization:** Educational software and interactive learning platforms
+**Focus:** Making financial education accessible through gamification
+**Region:** Nepal-based development team
+**Mission:** Empower South Asian youth through practical financial literacy
+
+## Keywords & Topics
+financial literacy, budgeting games, Nepal, market prices, education, gamification, economics, consumer awareness, South Asia, financial planning, interactive learning, price estimation, trend analysis, shopping skills, economic education, Nepali market, personal finance, money management
+
+## Future Enhancements
+- Multiplayer competitive modes
+- Global leaderboards
+- Currency conversion for international users
+- Additional game types and challenges
+- Integration with financial planning tools
+- Expert commentary on market trends
+- Community-driven price reporting
+- Advanced analytics dashboard
+
+## Support & Feedback
+For questions, feedback, or partnerships, reach out through the website contact information.
+
+---
+
+Platform last updated: February 2026
+Data currency: Updated monthly with latest market information
+Commitment: Providing accurate, engaging, and educationally sound financial literacy games

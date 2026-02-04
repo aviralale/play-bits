@@ -12,8 +12,33 @@ import TrendResultModal from "@/components/TrendResultModal";
 import ScoreTracker from "@/components/ScoreTracker";
 import DifficultySelector from "@/components/DifficultySelector";
 import TrendGameOverScreen from "@/components/TrendGameOverScreen";
+import GameEducationSection from "@/components/GameEducationSection";
 
 export default function MarketTrendsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    name: "Market Trends: Trading & Prediction Simulator",
+    url: "https://www.playbits.online/games/market-trends",
+    description:
+      "Analyze historical price charts and predict future market trends for commodities. Learn trading logic, trend analysis, and predictive thinking with real market data. Free interactive economics game for students.",
+    genre: ["Simulation", "Strategy", "Finance"],
+    gamePlatform: "Web Browser",
+    applicationCategory: "Game",
+    operatingSystem: "Any",
+    author: {
+      "@type": "Organization",
+      name: "Ctrl Bits",
+    },
+    isAccessibleForFree: true,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/OnlineOnly",
+    },
+  };
+
   const router = useRouter();
   const [difficulty, setDifficulty] = useState<Difficulty | undefined>(
     undefined,
@@ -207,14 +232,19 @@ export default function MarketTrendsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white relative py-8 px-4">
-      {/* Grid Background */}
-      <div
-        className="fixed inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="min-h-screen bg-white relative py-8 px-4">
+        {/* Grid Background */}
+        <div
+          className="fixed inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
         }}
       />
 
@@ -279,6 +309,32 @@ export default function MarketTrendsPage() {
           isLastRound={gameState.currentRound >= gameState.totalRounds}
         />
       </div>
-    </div>
+
+      <GameEducationSection
+        title="Master Market Analysis & Trend Prediction"
+        description="This game teaches you how to analyze historical price data and make predictions about future prices. You'll see 6-month price charts for real commodities and predict next month's price. This develops critical thinking skills used in investing, trading, and economic analysis."
+        learningOutcomes={[
+          "Analyze historical price trends from charts",
+          "Recognize different trend patterns (increasing, decreasing, stable, volatile)",
+          "Make informed predictions based on data analysis",
+          "Understand confidence levels and risk assessment",
+          "Learn how market dynamics affect commodity prices",
+          "Develop predictive thinking and pattern recognition skills",
+        ]}
+        targetAudience="Ideal for high school economics students (10-12 grade), business students, and anyone interested in finance and markets. Perfect for teaching trend analysis and investment concepts."
+        mechanics="Each round presents a 6-month price chart for a commodity. You predict the next month's price and select your confidence level (low/medium/high). Your score depends on accuracy and the confidence multiplier you chose. Challenge yourself across 5 different commodities with varying trends."
+        keywords={[
+          "market trends game",
+          "prediction simulator",
+          "commodity trading game",
+          "trend analysis game",
+          "price prediction simulator",
+          "finance game",
+          "investment simulator",
+          "economics education",
+        ]}
+      />
+      </div>
+    </>
   );
 }

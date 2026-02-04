@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { usePriceMemoryEngine } from "@/hooks/usePriceMemoryEngine";
+import GameEducationSection from "@/components/GameEducationSection";
 import type { Difficulty } from "@/hooks/usePriceMemoryEngine";
 
 const DIFFICULTIES: {
@@ -34,6 +35,30 @@ const DIFFICULTIES: {
 ];
 
 export default function PriceMemoryPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    name: "Price Memory: Educational Memory Matching Game",
+    url: "https://www.playbits.online/games/price-memory",
+    description:
+      "A fun memory matching game where you pair item names with their prices. Improve your memory, learn price associations, and compete against time. Free online game with 3 difficulty levels.",
+    genre: ["Educational", "Casual", "Memory"],
+    gamePlatform: "Web Browser",
+    applicationCategory: "Game",
+    operatingSystem: "Any",
+    author: {
+      "@type": "Organization",
+      name: "Ctrl Bits",
+    },
+    isAccessibleForFree: true,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/OnlineOnly",
+    },
+  };
+
   const router = useRouter();
   const { gameState, flipCard, resetGame, initializeGame } =
     usePriceMemoryEngine();
@@ -247,14 +272,19 @@ export default function PriceMemoryPage() {
 
   // Game Screen
   return (
-    <div className="min-h-screen bg-white relative">
-      {/* Grid Background */}
-      <div
-        className="fixed inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #000 1px, transparent 1px),
-            linear-gradient(to bottom, #000 1px, transparent 1px)
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="min-h-screen bg-white relative">
+        {/* Grid Background */}
+        <div
+          className="fixed inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, #000 1px, transparent 1px),
+              linear-gradient(to bottom, #000 1px, transparent 1px)
           `,
           backgroundSize: "40px 40px",
         }}
@@ -432,8 +462,10 @@ export default function PriceMemoryPage() {
               </motion.button>
             ))}
           </motion.div>
-        ) : (
-          /* Game Over Screen */
+        ) : null}
+
+        {/* Game Over Screen */}
+        {gameState.gameEnded && (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -537,7 +569,30 @@ export default function PriceMemoryPage() {
             </div>
           </motion.div>
         )}
+
+        {/* Educational Content Section */}
+        <GameEducationSection
+          title="Improve Memory Skills & Price Knowledge"
+          description="Price Memory combines cognitive training with financial education. Players strengthen their memory recall abilities while building associative knowledge of prices in the Nepali market. This game is particularly effective for developing quick decision-making skills needed for budgeting and shopping."
+          learningOutcomes={[
+            "Enhanced memory and recall speed",
+            "Association between items and prices",
+            "Quick cost estimation ability",
+            "Pattern recognition skills",
+            "Concentration improvement",
+          ]}
+          targetAudience="Middle school to high school (grades 7-10)"
+          mechanics="The game displays item cards and price cards in a grid. Players flip cards to match item names with their corresponding prices. The timer adds urgency, making it a realistic challenge. Difficulty levels progress from 4 pairs (8 cards) to 8 pairs (16 cards)."
+          keywords={[
+            "memory game",
+            "price learning",
+            "concentration game",
+            "educational game",
+            "cognitive training",
+          ]}
+        />
       </main>
-    </div>
+      </div>
+    </>
   );
 }

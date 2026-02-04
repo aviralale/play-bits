@@ -11,8 +11,33 @@ import ShoppingResultModal from "@/components/ShoppingResultModal";
 import ScoreTracker from "@/components/ScoreTracker";
 import DifficultySelector from "@/components/DifficultySelector";
 import ShoppingGameOverScreen from "@/components/ShoppingGameOverScreen";
+import GameEducationSection from "@/components/GameEducationSection";
 
 export default function ShoppingChallengePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    name: "Shopping Challenge: Smart Spender Simulator",
+    url: "https://www.playbits.online/games/shopping-challenge",
+    description:
+      "Manage a tight shopping budget for realistic scenarios like 'Diwali Festival' or 'Student Monthly Needs'. Optimize your cart for value, nutrition, and budget. Free interactive game for learning smart shopping and financial decision-making.",
+    genre: ["Simulation", "Educational", "Casual"],
+    gamePlatform: "Web Browser",
+    applicationCategory: "Game",
+    operatingSystem: "Any",
+    author: {
+      "@type": "Organization",
+      name: "Ctrl Bits",
+    },
+    isAccessibleForFree: true,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/OnlineOnly",
+    },
+  };
+
   const router = useRouter();
   const [difficulty, setDifficulty] = useState<Difficulty | undefined>(
     undefined,
@@ -228,14 +253,19 @@ export default function ShoppingChallengePage() {
   }
 
   return (
-    <div className="min-h-screen bg-white relative py-8 px-4">
-      {/* Grid Background */}
-      <div
-        className="fixed inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="min-h-screen bg-white relative py-8 px-4">
+        {/* Grid Background */}
+        <div
+          className="fixed inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
         }}
       />
 
@@ -361,6 +391,32 @@ export default function ShoppingChallengePage() {
           isLastRound={gameState.currentRound >= gameState.totalRounds}
         />
       </div>
-    </div>
+
+      <GameEducationSection
+        title="Master Smart Shopping & Budget Optimization"
+        description="This game simulates real-world shopping scenarios where you must make smart choices within a limited budget. You'll prioritize essential items, optimize for value, and make trade-offs - just like in real life. Perfect for learning practical money management."
+        learningOutcomes={[
+          "Identify essential vs. optional purchases",
+          "Prioritize items based on needs and budget constraints",
+          "Calculate total spending and track remaining budget",
+          "Optimize value for money across different items",
+          "Understand efficiency in real-world shopping",
+          "Develop decision-making skills under financial constraints",
+        ]}
+        targetAudience="Ideal for middle school to high school students (8-12 grade), home economics classes, and anyone learning practical money management. Great for teaching budgeting concepts to young learners."
+        mechanics="You receive a shopping budget and must select items from a list to complete a challenge (like 'Diwali Festival' or 'Student Monthly Needs'). Each item has a price and priority level. Your score is based on how efficiently you use your budget while getting essential items. 4 different scenarios with 3 rounds total."
+        keywords={[
+          "shopping simulator",
+          "budget game",
+          "grocery budget game",
+          "smart shopping game",
+          "money management game",
+          "financial literacy",
+          "budget optimization",
+          "consumer education",
+        ]}
+      />
+      </div>
+    </>
   );
 }

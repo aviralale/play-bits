@@ -12,8 +12,34 @@ import ResultModal from "@/components/ResultModal";
 import ScoreTracker from "@/components/ScoreTracker";
 import DifficultySelector from "@/components/DifficultySelector";
 import GameOverScreen from "@/components/GameOverScreen";
+import GameEducationSection from "@/components/GameEducationSection";
 
 export default function GuessThePricePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    name: "Price Guessing Game: Inflation & Market Simulator",
+    url: "https://www.playbits.online/games/guess-the-price",
+    description:
+      "Test your knowledge of current market prices. Guess the cost of everyday items like groceries, fuel, and services to beat the inflation index. Free online educational game for students.",
+    genre: ["Trivia", "Educational", "Casual"],
+    gamePlatform: "Web Browser",
+    applicationCategory: "Game",
+    operatingSystem: "Any",
+    author: {
+      "@type": "Organization",
+      name: "Ctrl Bits",
+    },
+    playMode: "SinglePlayer",
+    isAccessibleForFree: true,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/OnlineOnly",
+    },
+  };
+
   const router = useRouter();
   const [difficulty, setDifficulty] = useState<Difficulty | undefined>(
     undefined
@@ -208,15 +234,20 @@ export default function GuessThePricePage() {
   }
 
   return (
-    <div className="min-h-screen bg-white relative py-8 px-4">
-      {/* Grid Background */}
-      <div
-        className="fixed inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #000 1px, transparent 1px),
-            linear-gradient(to bottom, #000 1px, transparent 1px)
-          `,
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="min-h-screen bg-white relative py-8 px-4">
+        {/* Grid Background */}
+        <div
+          className="fixed inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, #000 1px, transparent 1px),
+              linear-gradient(to bottom, #000 1px, transparent 1px)
+            `,
           backgroundSize: "40px 40px",
         }}
       />
@@ -270,6 +301,31 @@ export default function GuessThePricePage() {
           isLastRound={gameState.currentRound >= gameState.totalRounds}
         />
       </div>
-    </div>
+
+      <GameEducationSection
+        title="Learn Price Estimation & Market Awareness"
+        description="This game teaches players to understand real-world market prices and inflation. By guessing prices of everyday items, you develop awareness of your local economy and how prices fluctuate. This is essential financial literacy that helps you make smarter purchasing decisions."
+        learningOutcomes={[
+          "Understand market prices for everyday items in Nepal",
+          "Recognize inflation trends and price variations",
+          "Develop estimation skills based on market knowledge",
+          "Learn how different categories (groceries, transport, services) are priced",
+          "Build awareness of personal purchasing power",
+        ]}
+        targetAudience="Perfect for high school students (7-12), college freshmen, and anyone interested in developing financial awareness. Teachers use this game to teach economics and consumer awareness."
+        mechanics="The game presents you with 35+ real items from Nepali markets. You have 5 rounds where you guess the current price of each item. Your score is based on accuracy - the closer you are, the higher your points. Five difficulty levels ensure everyone can play."
+        keywords={[
+          "price guessing game",
+          "inflation game",
+          "cost of living quiz",
+          "market prices",
+          "financial literacy game",
+          "economics simulation",
+          "consumer awareness",
+          "budgeting game",
+        ]}
+      />
+      </div>
+    </>
   );
 }
