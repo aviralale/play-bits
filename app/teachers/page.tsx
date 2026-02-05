@@ -1,23 +1,9 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { BookOpen, Users, CheckCircle2, ArrowRight } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Free Classroom Resources | Financial Literacy Games for Teachers",
-  description:
-    "Free educational games for teaching financial literacy, budgeting, and economics. Perfect classroom resources for high school and college educators. No registration required.",
-  keywords: [
-    "classroom games",
-    "financial literacy education",
-    "free educational resources",
-    "teacher resources",
-    "economics curriculum",
-    "budgeting simulation",
-    "financial education games",
-    "student engagement",
-  ],
-};
+import { useEffect } from "react";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -37,7 +23,8 @@ const games = [
   {
     id: 1,
     title: "Budget Master",
-    description: "Teach the 50/30/20 budgeting rule with realistic family scenarios",
+    description:
+      "Teach the 50/30/20 budgeting rule with realistic family scenarios",
     path: "/games/budget-master",
     benefits: ["Budget allocation", "Expense management", "50/30/20 rule"],
     gradeLevel: "9-12",
@@ -73,7 +60,8 @@ const games = [
   {
     id: 5,
     title: "Price Memory",
-    description: "Engage students with memory games while building price knowledge",
+    description:
+      "Engage students with memory games while building price knowledge",
     path: "/games/price-memory",
     benefits: ["Memory skills", "Price associations", "Quick thinking"],
     gradeLevel: "7-10",
@@ -82,6 +70,35 @@ const games = [
 ];
 
 export default function TeachersPage() {
+  useEffect(() => {
+    document.title =
+      "Free Classroom Resources | Financial Literacy Games for Teachers";
+
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute(
+      "content",
+      "Free educational games for teaching financial literacy, budgeting, and economics. Perfect classroom resources for high school and college educators. No registration required.",
+    );
+
+    // Update meta keywords
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement("meta");
+      metaKeywords.setAttribute("name", "keywords");
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute(
+      "content",
+      "classroom games, financial literacy education, free educational resources, teacher resources, economics curriculum, budgeting simulation, financial education games, student engagement",
+    );
+  }, []);
+
   return (
     <>
       <script
@@ -91,7 +108,7 @@ export default function TeachersPage() {
 
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-blue-50 to-white border-b-4 border-gray-900">
+        <section className="bg-linear-to-b from-blue-50 to-white border-b-4 border-gray-900">
           <div className="max-w-7xl mx-auto px-4 py-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -100,13 +117,17 @@ export default function TeachersPage() {
             >
               <div className="flex items-center justify-center mb-6">
                 <BookOpen className="w-12 h-12 text-blue-600 mr-4" />
-                <h1 className="text-5xl font-black text-gray-900" style={{ fontFamily: "Comic Sans MS, cursive" }}>
+                <h1
+                  className="text-5xl font-black text-gray-900"
+                  style={{ fontFamily: "Comic Sans MS, cursive" }}
+                >
                   Financial Literacy for Classrooms
                 </h1>
               </div>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
-                Free, interactive games designed to teach financial literacy, budgeting, and economic concepts. 
-                Perfect for engaging students and making financial education fun and practical.
+                Free, interactive games designed to teach financial literacy,
+                budgeting, and economic concepts. Perfect for engaging students
+                and making financial education fun and practical.
               </p>
               <div className="flex gap-4 justify-center flex-wrap">
                 <Link
@@ -130,27 +151,32 @@ export default function TeachersPage() {
               {
                 icon: "🎮",
                 title: "100% Free",
-                description: "No subscription, no registration, no ads interrupting lessons.",
+                description:
+                  "No subscription, no registration, no ads interrupting lessons.",
               },
               {
                 icon: "⏱️",
                 title: "Quick Activities",
-                description: "Games fit perfectly into 15-20 minute class periods.",
+                description:
+                  "Games fit perfectly into 15-20 minute class periods.",
               },
               {
                 icon: "📊",
                 title: "Real Data",
-                description: "Based on actual market prices and real-world scenarios.",
+                description:
+                  "Based on actual market prices and real-world scenarios.",
               },
               {
                 icon: "👥",
                 title: "Easy Setup",
-                description: "Just click and play - works on any device with a browser.",
+                description:
+                  "Just click and play - works on any device with a browser.",
               },
               {
                 icon: "📈",
                 title: "Engaging",
-                description: "Gamification increases student motivation and participation.",
+                description:
+                  "Gamification increases student motivation and participation.",
               },
               {
                 icon: "✅",
@@ -166,7 +192,9 @@ export default function TeachersPage() {
                 className="bg-gray-50 border-3 border-gray-900 rounded-xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
               >
                 <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="font-black text-lg mb-2 text-gray-900">{feature.title}</h3>
+                <h3 className="font-black text-lg mb-2 text-gray-900">
+                  {feature.title}
+                </h3>
                 <p className="text-gray-700">{feature.description}</p>
               </motion.div>
             ))}
@@ -174,7 +202,10 @@ export default function TeachersPage() {
         </section>
 
         {/* Games Section */}
-        <section id="games" className="max-w-7xl mx-auto px-4 py-16 border-t-4 border-gray-200">
+        <section
+          id="games"
+          className="max-w-7xl mx-auto px-4 py-16 border-t-4 border-gray-200"
+        >
           <h2 className="text-4xl font-black text-gray-900 mb-12 text-center">
             5 Interactive Financial Literacy Games
           </h2>
@@ -190,12 +221,18 @@ export default function TeachersPage() {
               >
                 <div className="grid md:grid-cols-3 gap-8">
                   <div className="md:col-span-2">
-                    <h3 className="text-2xl font-black text-gray-900 mb-3">{game.title}</h3>
-                    <p className="text-gray-700 text-lg mb-6">{game.description}</p>
+                    <h3 className="text-2xl font-black text-gray-900 mb-3">
+                      {game.title}
+                    </h3>
+                    <p className="text-gray-700 text-lg mb-6">
+                      {game.description}
+                    </p>
 
                     <div className="space-y-4 mb-6">
                       <div>
-                        <p className="font-bold text-gray-900">Learning Outcomes:</p>
+                        <p className="font-bold text-gray-900">
+                          Learning Outcomes:
+                        </p>
                         <ul className="flex flex-wrap gap-2 mt-2">
                           {game.benefits.map((benefit, i) => (
                             <li
@@ -209,10 +246,12 @@ export default function TeachersPage() {
                       </div>
                       <div className="flex gap-8 text-sm">
                         <p>
-                          <span className="font-bold">Grade Level:</span> {game.gradeLevel}
+                          <span className="font-bold">Grade Level:</span>{" "}
+                          {game.gradeLevel}
                         </p>
                         <p>
-                          <span className="font-bold">Duration:</span> {game.duration}
+                          <span className="font-bold">Duration:</span>{" "}
+                          {game.duration}
                         </p>
                       </div>
                     </div>
@@ -248,22 +287,26 @@ export default function TeachersPage() {
                 {
                   step: "1",
                   title: "Pick a Game",
-                  description: "Select which financial concept you want to teach",
+                  description:
+                    "Select which financial concept you want to teach",
                 },
                 {
                   step: "2",
                   title: "Launch",
-                  description: "Click play - no setup, registration, or downloads needed",
+                  description:
+                    "Click play - no setup, registration, or downloads needed",
                 },
                 {
                   step: "3",
                   title: "Play Together",
-                  description: "Students play individually or discuss strategy together",
+                  description:
+                    "Students play individually or discuss strategy together",
                 },
                 {
                   step: "4",
                   title: "Discuss Results",
-                  description: "Review scores and discuss real-world financial lessons",
+                  description:
+                    "Review scores and discuss real-world financial lessons",
                 },
               ].map((item) => (
                 <motion.div
@@ -273,8 +316,12 @@ export default function TeachersPage() {
                   viewport={{ once: true }}
                   className="text-center"
                 >
-                  <div className="text-5xl font-black text-blue-600 mb-4">{item.step}</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                  <div className="text-5xl font-black text-blue-600 mb-4">
+                    {item.step}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {item.title}
+                  </h3>
                   <p className="text-gray-700">{item.description}</p>
                 </motion.div>
               ))}
@@ -293,8 +340,10 @@ export default function TeachersPage() {
               Ready to Engage Your Students?
             </h2>
             <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-              Start using PlayBits in your classroom today. These games have been designed specifically 
-              for educational impact and student engagement. Perfect for economics, business, and life skills classes.
+              Start using PlayBits in your classroom today. These games have
+              been designed specifically for educational impact and student
+              engagement. Perfect for economics, business, and life skills
+              classes.
             </p>
             <Link
               href="/"
@@ -308,11 +357,27 @@ export default function TeachersPage() {
         {/* Footer */}
         <footer className="bg-gray-900 text-white border-t-4 border-gray-900 py-8 mt-16">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <p className="font-bold mb-2">PlayBits - Free Financial Literacy Games</p>
-            <p className="text-gray-400">Made by Ctrl Bits | Designed for Educators</p>
+            <p className="font-bold mb-2">
+              PlayBits - Free Financial Literacy Games
+            </p>
+            <p className="text-gray-400">
+              Made by Ctrl Bits | Designed for Educators
+            </p>
           </div>
         </footer>
       </div>
     </>
+  );
+}
+
+export function AnimatedSection({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {children}
+    </motion.div>
   );
 }

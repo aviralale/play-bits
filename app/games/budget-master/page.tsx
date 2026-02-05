@@ -106,38 +106,38 @@ export default function BudgetMasterPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <div className="min-h-screen bg-white relative flex items-center justify-center p-4">
-        {/* Grid Background */}
-        <div
-          className="fixed inset-0 opacity-[0.04] pointer-events-none"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #000 1px, transparent 1px),
-              linear-gradient(to bottom, #000 1px, transparent 1px)
-            `,
-            backgroundSize: "40px 40px",
-          }}
-        />
+          {/* Grid Background */}
+          <div
+            className="fixed inset-0 opacity-[0.04] pointer-events-none"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, #000 1px, transparent 1px),
+                linear-gradient(to bottom, #000 1px, transparent 1px)
+              `,
+              backgroundSize: "40px 40px",
+            }}
+          />
 
-        {/* Scattered Dots */}
-        <div className="fixed inset-0 pointer-events-none">
-          {[...Array(40)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-gray-400 rounded-full opacity-20"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-            />
-          ))}
-        </div>
+          {/* Scattered Dots */}
+          <div className="fixed inset-0 pointer-events-none">
+            {[...Array(40)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-1 h-1 bg-gray-400 rounded-full opacity-20"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                }}
+              />
+            ))}
+          </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-white border-3 border-gray-900 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] max-w-lg w-full p-8"
-          style={{ transform: "rotate(-0.5deg)" }}
-        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white border-3 border-gray-900 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] max-w-lg w-full p-8"
+            style={{ transform: "rotate(-0.5deg)" }}
+          >
           <button
             onClick={() => router.push("/")}
             className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-6 font-bold"
@@ -251,6 +251,7 @@ export default function BudgetMasterPage() {
           </div>
         </motion.div>
       </div>
+    </>
     );
   }
 
@@ -288,7 +289,7 @@ export default function BudgetMasterPage() {
         </div>
 
         <div className="max-w-4xl mx-auto relative">
-        <button
+          <button
           onClick={() => router.push("/")}
           className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-6 font-bold"
           style={{ transform: "rotate(-0.5deg)" }}
@@ -384,28 +385,28 @@ export default function BudgetMasterPage() {
           isLastRound={gameState.currentRound >= gameState.totalRounds}
         />
 
-        {/* Educational Content Section */}
-        <GameEducationSection
-          title="Master Monthly Budgeting & Financial Planning"
-          description="Budget Master teaches the 50/30/20 budgeting rule through realistic household scenarios. Players manage real-world income and expense categories, learning how to allocate resources effectively across needs, wants, and savings. This game simulates the decision-making process families face when planning their monthly finances."
-          learningOutcomes={[
-            "Understand the 50/30/20 budgeting framework",
-            "Allocate expenses across multiple categories",
-            "Manage household budgets within income constraints",
-            "Make informed financial decisions",
-            "Plan for essential needs and discretionary spending",
-          ]}
-          targetAudience="High school students (grades 9-12)"
-          mechanics="Each round presents a household scenario with monthly income and family details. Players allocate their income across categories (housing, food, utilities, education, entertainment, savings). The game provides feedback on how their allocation compares to the recommended 50/30/20 rule."
-          keywords={[
-            "budget simulator",
-            "financial planning",
-            "expense allocation",
-            "budgeting game",
-            "financial literacy",
-          ]}
-        />
-      </div>
+      {/* Educational Content Section */}
+      <GameEducationSection
+        title="Master Monthly Budgeting & Financial Planning"
+        description="Budget Master teaches the 50/30/20 budgeting rule through realistic household scenarios. Players manage real-world income and expense categories, learning how to allocate resources effectively across needs, wants, and savings. This game simulates the decision-making process families face when planning their monthly finances."
+        learningOutcomes={[
+          "Understand the 50/30/20 budgeting framework",
+          "Allocate expenses across multiple categories",
+          "Manage household budgets within income constraints",
+          "Make informed financial decisions",
+          "Plan for essential needs and discretionary spending",
+        ]}
+        targetAudience="High school students (grades 9-12)"
+        mechanics="Each round presents a household scenario with monthly income and family details. Players allocate their income across categories (housing, food, utilities, education, entertainment, savings). The game provides feedback on how their allocation compares to the recommended 50/30/20 rule."
+        keywords={[
+          "budget simulator",
+          "financial planning",
+          "expense allocation",
+          "budgeting game",
+          "financial literacy",
+        ]}
+      />
+        </div>
       </div>
     </>
   );
